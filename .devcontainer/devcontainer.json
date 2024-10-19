@@ -1,0 +1,28 @@
+{
+    "name": "FFmpeg DevContainer with Python",
+    "runArgs": [
+        "--gpus=all",
+        "--network=dev-net"
+    ],
+    "dockerFile": "Dockerfile",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+      },
+    "settings": {
+        "python.pythonPath": "/usr/bin/python3",
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+        "ms-python.python",        // Python extension
+        "ms-toolsai.jupyter",      // Jupyter for notebooks (if needed)
+        "eamodio.gitlens",         // GitLens for Git operations
+        "mhutchie.git-graph"       // Git graph for visualizing branches
+    ],
+    "postCreateCommand": "pip3 install -r requirements.txt",
+    "forwardPorts": [8000],  // Any port you want to forward for app access
+    "remoteUser": "root",
+    "mounts": [
+        "source=c:/Users/faizal/videos,target=/workspaces/videos,type=bind"
+    ]
+}
